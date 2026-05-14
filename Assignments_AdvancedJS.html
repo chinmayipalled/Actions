@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM & Events</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>1. Dynamic Styling</h2>
+<p id="myPara">This text will change style</p>
+<button onclick="changeStyle()">Change Style</button>
+
+
+<h2>2. User Interaction (Age Check)</h2>
+<button onclick="checkAge()">Check Age</button>
+<p id="ageResult"></p>
+
+
+<h2>3. Simple Calculator</h2>
+
+<input type="number" id="num1" placeholder="Enter first number">
+<input type="number" id="num2" placeholder="Enter second number">
+<br>
+
+<button onclick="calculate('Add')">Add</button>
+<button onclick="calculate('Sub')">Subtract</button>
+<button onclick="calculate('Mul')">Multiply</button>
+<button onclick="calculate('Div')">Divide</button>
+
+<p id="Result"></p>
+
+
+<script>
+
+// 1. Dynamic Styling
+function changeStyle(){
+    let para = document.getElementById("myPara");
+    para.style.color = "blue";
+    para.style.fontSize = "20px";
+}
+
+
+// 2. Age Check
+function checkAge(){
+    let age = prompt("Enter your age:");
+    let result = document.getElementById("ageResult");
+
+    if(age >= 18){
+        result.innerHTML = "You are old enough to drive.";
+    } else {
+        let wait = 18 - age;
+        result.innerHTML = "You need to wait " + wait + " more years.";
+    }
+}
+
+
+// 3. Calculator
+function calculate(op){
+    let n1 = Number(document.getElementById("num1").value);
+    let n2 = Number(document.getElementById("num2").value);
+    let res = document.getElementById("result");
+
+    if(isNaN(n1) || isNaN(n2)){
+        res.innerHTML = "Please enter valid numbers";
+        return;
+    }
+
+    let output;
+
+    if(op === "add") output = n1 + n2;
+    else if(op === "sub") output = n1 - n2;
+    else if(op === "mul") output = n1 * n2;
+    else if(op === "div") output = n2 !== 0 ? n1 / n2 : "Cannot divide by zero";
+
+    res.innerHTML = "Result: " + output;
+}
+
+</script>
+
+</body>
+</html>
