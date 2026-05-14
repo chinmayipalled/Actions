@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Assignments</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #333;
+            margin-top: 25px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>JavaScript Assignments Output</h1>
+
+<div id="output"></div>
+
+<script>
+
+let out = document.getElementById("output");
+
+// helper function to print
+function print(text) {
+    out.innerHTML += text + "<br>";
+}
+
+
+
+
+print("<h2>1. Basics & Variables</h2>");
+
+let firstName = "Chinmayi";
+let lastName = "Palled";
+let age = 21;
+
+print(`Name: ${firstName} ${lastName}, Age: ${age}`);
+
+// Data Types
+let str = "Hello";
+let num = 10;
+let bool = true;
+let nothing = null;
+let notDefined;
+
+print("Type of string: " + typeof str);
+print("Type of number: " + typeof num);
+print("Type of boolean: " + typeof bool);
+print("Type of null: " + typeof nothing);
+print("Type of undefined: " + typeof notDefined);
+
+// Triangle Area
+function triangleArea(a, b, c) {
+    let s = (a + b + c) / 2;
+    return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+}
+print("Triangle Area (5,6,7): " + triangleArea(5,6,7));
+
+
+/*
+   2. Conditionals and Logic
+*/
+
+print("<h2>2. Conditionals & Logic</h2>");
+
+// Grade
+function getGrade(score) {
+    if (score >= 80) return "A";
+    else if (score >= 70) return "B";
+    else if (score >= 60) return "C";
+    else return "Fail";
+}
+print("Grade for 75 is: " + getGrade(75));
+
+// Prime
+function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+print("Is 11 prime or not? " + isPrime(11));
+
+// FizzBuzz
+print("<b>FizzBuzz (1–15):</b>");
+for (let i = 1; i <= 15; i++) {
+    if (i % 3 === 0 && i % 5 === 0) print("FizzBuzz");
+    else if (i % 3 === 0) print("Fizz");
+    else if (i % 5 === 0) print("Buzz");
+    else print(i);
+}
+
+
+/* 
+   3. Loops and Arrays
+ */
+
+print("<h2>3. Loops & Arrays</h2>");
+
+// Array
+let cart = ["Apple", "Noodles", "Wheat Flour"];
+cart.unshift("Bread");
+cart.push("Sugar");
+cart[1] = "Watermelon";
+
+print("Cart: " + cart.join(", "));
+
+// Frequency
+function frequency(arr) {
+    let count = {};
+    for (let item of arr) {
+        count[item] = (count[item] || 0) + 1;
+    }
+    return count;
+}
+let freq = frequency(["Red","Red","Brown","Magenta","Brown","Brown","Pink","Golden","Violet"]);
+print("Frequency: " + JSON.stringify(freq));
+
+// Pattern
+print("<b>Pattern:</b>");
+for (let i = 1; i <= 5; i++) {
+    let row = "";
+    for (let j = 1; j <= i; j++) {
+        row += "* ";
+    }
+    print(row);
+}
+
+
+/* 
+   4. Functions and Strings
+ */
+
+print("<h2>4. Functions & Strings</h2>");
+
+// Palindrome
+function isPalindrome(str) {
+    let reversed = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return str === reversed;
+}
+print("Is 'madam' palindrome? " + isPalindrome("madam"));
+print("Is 'String' palindrome? " + isPalindrome("String"));
+
+// Reverse string
+function reverseString(str) {
+    let result = "";
+    for (let ch of str) {
+        result = ch + result;
+    }
+    return result;
+}
+print("Reverse of 'hello': " + reverseString("hello"));
+
+// BMI
+function calculateBMI(weight, height) {
+    let bmi = weight / (height * height);
+
+    if (bmi < 18.5) return "Underweight";
+    else if (bmi < 25) return "Normal";
+    else if (bmi < 30) return "Overweight";
+    else return "Obese";
+}
+
+print("Your BMI Category is: " + calculateBMI(60, 1.7));
+
+</script>
+
+</body>
+</html>
