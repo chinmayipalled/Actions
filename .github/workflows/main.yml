@@ -11,6 +11,6 @@ jobs:
       - run: echo "the runner has cloned ${{github.repository}} repository"
       - uses: actions/checkout@v3
       - run: echo "The runner has closed the ${{github.repository}} repository"
-      -run: ls -l ${{github.workspace}}
-      -run: echo "Push status = ${{job.status}}"
+      - run: ls -l ${{github.workspace}}
+      - run: echo "Push status = ${{job.status}}"
        
